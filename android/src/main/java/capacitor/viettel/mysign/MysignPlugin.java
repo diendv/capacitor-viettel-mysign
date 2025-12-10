@@ -38,7 +38,7 @@ public class MysignPlugin extends Plugin {
         String clientId = call.getString("clientId");
         String clientSecret = call.getString("clientSecret");
         String grantType = call.getString("grantType");
-        Integer biometricSessionTime = call.getInt("biometricSessionTime", 30);
+        Long biometricSessionTime = call.getLong("biometricSessionTime", 60L);
 
         if (baseUrl == null || baseUrl.isEmpty()) {
             call.reject("baseUrl is required");
@@ -63,7 +63,7 @@ public class MysignPlugin extends Plugin {
 
         try {
             Application application = (Application) getContext().getApplicationContext();
-            
+
             // Initialize GoSignSDK
             GoSignSDKSetup.initialize(
                 application,
@@ -72,7 +72,7 @@ public class MysignPlugin extends Plugin {
                 clientId,
                 clientSecret,
                 grantType,
-                60                
+                biometricSessionTime
             );
 
             // Set configuration parameters
@@ -273,23 +273,15 @@ public class MysignPlugin extends Plugin {
                     
                     JSArray successArray = new JSArray();
                     if (data.getSuccess() != null) {
-                        for (PendingAuthorisationRequest req : data.getSuccess()) {
-                            JSObject reqObj = new JSObject();
-                            reqObj.put("transactionId", req.getTransactionID());
-                            reqObj.put("request", req.getRequest());
-                            reqObj.put("hashAlgorithm", req.getHashAlgorithm());
-                            successArray.put(reqObj);
+                        for (String transactionId : data.getSuccess()) {
+                            successArray.put(transactionId);
                         }
                     }
                     
                     JSArray failedArray = new JSArray();
                     if (data.getFailed() != null) {
-                        for (PendingAuthorisationRequest req : data.getFailed()) {
-                            JSObject reqObj = new JSObject();
-                            reqObj.put("transactionId", req.getTransactionID());
-                            reqObj.put("request", req.getRequest());
-                            reqObj.put("hashAlgorithm", req.getHashAlgorithm());
-                            failedArray.put(reqObj);
+                        for (String transactionId : data.getFailed()) {
+                            failedArray.put(transactionId);
                         }
                     }
                     
@@ -330,8 +322,8 @@ public class MysignPlugin extends Plugin {
 
     private JSObject createErrorObject(ResponseError error) {
         JSObject errorObj = new JSObject();
-        errorObj.put("code", error.getErrorCode());
-        errorObj.put("message", error.getMessage());
+        errorObj.put("code", error.getError().getCode());
+        errorObj.put("message", error.getErrorMessage());
         errorObj.put("type", error.getErrorType().toString());
         return errorObj;
     }
