@@ -45,6 +45,9 @@ android {
 repositories {
     google()
     mavenCentral()
+    flatDir {
+        dirs 'libs'
+    }
 }
 
 
@@ -55,4 +58,27 @@ dependencies {
     testImplementation "junit:junit:$junitVersion"
     androidTestImplementation "androidx.test.ext:junit:$androidxJunitVersion"
     androidTestImplementation "androidx.test.espresso:espresso-core:$androidxEspressoCoreVersion"
+
+    // Mysign SDK (place GoSignSDK.aar in android/libs folder)
+    implementation(name: 'GoSignSDK', ext: 'aar')
+
+    // Network dependencies
+    implementation 'com.squareup.retrofit2:retrofit:2.9.0'
+    implementation 'com.google.code.gson:gson:2.8.9'
+    implementation 'com.squareup.retrofit2:converter-gson:2.9.0'
+    implementation 'com.squareup.retrofit2:adapter-rxjava2:2.9.0'
+    implementation 'com.squareup.okhttp3:okhttp:4.9.1'
+    implementation 'com.squareup.okhttp3:logging-interceptor:4.9.1'
+    implementation "io.reactivex.rxjava2:rxandroid:2.1.1"
+    implementation "io.reactivex.rxjava2:rxjava:2.2.18"
+
+    // Spongy Castle for cryptography
+    implementation "com.madgag.spongycastle:core:1.58.0.0"
+    implementation "com.madgag.spongycastle:prov:1.58.0.0"
+    implementation "com.madgag.spongycastle:bcpkix-jdk15on:1.58.0.0"
+
+    // Biometric authentication
+    implementation "androidx.biometric:biometric:1.1.0"
+    implementation "dev.skomlach:biometric:2.1.52"
+
 }

@@ -7,11 +7,11 @@
   "types": "dist/esm/index.d.ts",
   "unpkg": "dist/plugin.js",
   "files": [
-    "android/src/main/",
-    "android/build.gradle",
+    "android/",
+    "ios/",
     "dist/",
-    "ios/Sources",
-    "ios/Tests",
+    "src/",
+    "scripts/",
     "Package.swift",
     "CapacitorViettelMysign.podspec"
   ],
@@ -43,7 +43,8 @@
     "build": "npm run clean && npm run docgen && tsc && rollup -c rollup.config.mjs",
     "clean": "rimraf ./dist",
     "watch": "tsc --watch",
-    "prepublishOnly": "npm run build"
+    "prepublishOnly": "npm run build",
+    "postinstall": "node scripts/post-install.js"
   },
   "devDependencies": {
     "@capacitor/android": "^7.0.0",
@@ -59,7 +60,7 @@
     "rimraf": "^6.0.1",
     "rollup": "^4.30.1",
     "swiftlint": "^2.0.0",
-    "typescript": "~4.1.5"
+    "typescript": "^5.9.3"
   },
   "peerDependencies": {
     "@capacitor/core": ">=7.0.0"
