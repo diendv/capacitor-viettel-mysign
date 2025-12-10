@@ -1,10 +1,12 @@
+import nodeResolve from '@rollup/plugin-node-resolve';
+
 export default {
   input: 'dist/esm/index.js',
   output: [
     {
       file: 'dist/plugin.js',
       format: 'iife',
-      name: 'capacitorMysign',
+      name: 'capacitorViettelMysign',
       globals: {
         '@capacitor/core': 'capacitorExports',
       },
@@ -19,4 +21,10 @@ export default {
     },
   ],
   external: ['@capacitor/core'],
+  plugins: [
+    nodeResolve({
+      browser: true,
+      preferBuiltins: false,
+    }),
+  ],
 };
