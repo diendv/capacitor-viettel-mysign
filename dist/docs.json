@@ -1,0 +1,320 @@
+{
+  "api": {
+    "name": "MysignPlugin",
+    "slug": "mysignplugin",
+    "docs": "",
+    "tags": [],
+    "methods": [
+      {
+        "name": "initialize",
+        "signature": "(options: InitializeOptions) => Promise<void>",
+        "parameters": [
+          {
+            "name": "options",
+            "docs": "",
+            "type": "InitializeOptions"
+          }
+        ],
+        "returns": "Promise<void>",
+        "tags": [],
+        "docs": "Initialize the Mysign SDK",
+        "complexTypes": [
+          "InitializeOptions"
+        ],
+        "slug": "initialize"
+      },
+      {
+        "name": "registerDevice",
+        "signature": "(options: RegisterDeviceOptions) => Promise<RegisterDeviceResult>",
+        "parameters": [
+          {
+            "name": "options",
+            "docs": "",
+            "type": "RegisterDeviceOptions"
+          }
+        ],
+        "returns": "Promise<RegisterDeviceResult>",
+        "tags": [],
+        "docs": "Register device for biometric authentication",
+        "complexTypes": [
+          "RegisterDeviceResult",
+          "RegisterDeviceOptions"
+        ],
+        "slug": "registerdevice"
+      },
+      {
+        "name": "authorizePendingRequest",
+        "signature": "(options: AuthorizeOptions) => Promise<void>",
+        "parameters": [
+          {
+            "name": "options",
+            "docs": "",
+            "type": "AuthorizeOptions"
+          }
+        ],
+        "returns": "Promise<void>",
+        "tags": [],
+        "docs": "Authorize a pending signing request",
+        "complexTypes": [
+          "AuthorizeOptions"
+        ],
+        "slug": "authorizependingrequest"
+      },
+      {
+        "name": "authorizeMultiplePendingRequests",
+        "signature": "(options: AuthorizeMultipleOptions) => Promise<AuthorizeMultipleResult>",
+        "parameters": [
+          {
+            "name": "options",
+            "docs": "",
+            "type": "AuthorizeMultipleOptions"
+          }
+        ],
+        "returns": "Promise<AuthorizeMultipleResult>",
+        "tags": [],
+        "docs": "Authorize multiple pending signing requests",
+        "complexTypes": [
+          "AuthorizeMultipleResult",
+          "AuthorizeMultipleOptions"
+        ],
+        "slug": "authorizemultiplependingrequests"
+      }
+    ],
+    "properties": []
+  },
+  "interfaces": [
+    {
+      "name": "InitializeOptions",
+      "slug": "initializeoptions",
+      "docs": "",
+      "tags": [],
+      "methods": [],
+      "properties": [
+        {
+          "name": "baseUrl",
+          "tags": [],
+          "docs": "",
+          "complexTypes": [],
+          "type": "string"
+        },
+        {
+          "name": "biometricTitle",
+          "tags": [],
+          "docs": "",
+          "complexTypes": [],
+          "type": "string"
+        },
+        {
+          "name": "clientId",
+          "tags": [],
+          "docs": "",
+          "complexTypes": [],
+          "type": "string"
+        },
+        {
+          "name": "clientSecret",
+          "tags": [],
+          "docs": "",
+          "complexTypes": [],
+          "type": "string"
+        },
+        {
+          "name": "grantType",
+          "tags": [],
+          "docs": "",
+          "complexTypes": [],
+          "type": "string"
+        },
+        {
+          "name": "biometricSessionTime",
+          "tags": [],
+          "docs": "",
+          "complexTypes": [],
+          "type": "number | undefined"
+        }
+      ]
+    },
+    {
+      "name": "RegisterDeviceResult",
+      "slug": "registerdeviceresult",
+      "docs": "",
+      "tags": [],
+      "methods": [],
+      "properties": [
+        {
+          "name": "alias",
+          "tags": [],
+          "docs": "",
+          "complexTypes": [],
+          "type": "string"
+        },
+        {
+          "name": "certificate",
+          "tags": [],
+          "docs": "",
+          "complexTypes": [],
+          "type": "string"
+        }
+      ]
+    },
+    {
+      "name": "RegisterDeviceOptions",
+      "slug": "registerdeviceoptions",
+      "docs": "",
+      "tags": [],
+      "methods": [],
+      "properties": [
+        {
+          "name": "token",
+          "tags": [],
+          "docs": "",
+          "complexTypes": [],
+          "type": "string"
+        },
+        {
+          "name": "biometricType",
+          "tags": [],
+          "docs": "",
+          "complexTypes": [],
+          "type": "'FACE_ID' | 'FINGER_PRINT' | 'AUTO' | undefined"
+        }
+      ]
+    },
+    {
+      "name": "AuthorizeOptions",
+      "slug": "authorizeoptions",
+      "docs": "",
+      "tags": [],
+      "methods": [],
+      "properties": [
+        {
+          "name": "token",
+          "tags": [],
+          "docs": "",
+          "complexTypes": [],
+          "type": "string"
+        },
+        {
+          "name": "transactionId",
+          "tags": [],
+          "docs": "",
+          "complexTypes": [],
+          "type": "string"
+        },
+        {
+          "name": "request",
+          "tags": [],
+          "docs": "",
+          "complexTypes": [],
+          "type": "string"
+        },
+        {
+          "name": "hashAlgorithm",
+          "tags": [],
+          "docs": "",
+          "complexTypes": [],
+          "type": "string"
+        },
+        {
+          "name": "biometricType",
+          "tags": [],
+          "docs": "",
+          "complexTypes": [],
+          "type": "'FACE_ID' | 'FINGER_PRINT' | 'AUTO' | undefined"
+        }
+      ]
+    },
+    {
+      "name": "AuthorizeMultipleResult",
+      "slug": "authorizemultipleresult",
+      "docs": "",
+      "tags": [],
+      "methods": [],
+      "properties": [
+        {
+          "name": "success",
+          "tags": [],
+          "docs": "",
+          "complexTypes": [
+            "PendingRequest"
+          ],
+          "type": "PendingRequest[]"
+        },
+        {
+          "name": "failed",
+          "tags": [],
+          "docs": "",
+          "complexTypes": [
+            "PendingRequest"
+          ],
+          "type": "PendingRequest[]"
+        }
+      ]
+    },
+    {
+      "name": "PendingRequest",
+      "slug": "pendingrequest",
+      "docs": "",
+      "tags": [],
+      "methods": [],
+      "properties": [
+        {
+          "name": "transactionId",
+          "tags": [],
+          "docs": "",
+          "complexTypes": [],
+          "type": "string"
+        },
+        {
+          "name": "request",
+          "tags": [],
+          "docs": "",
+          "complexTypes": [],
+          "type": "string"
+        },
+        {
+          "name": "hashAlgorithm",
+          "tags": [],
+          "docs": "",
+          "complexTypes": [],
+          "type": "string"
+        }
+      ]
+    },
+    {
+      "name": "AuthorizeMultipleOptions",
+      "slug": "authorizemultipleoptions",
+      "docs": "",
+      "tags": [],
+      "methods": [],
+      "properties": [
+        {
+          "name": "token",
+          "tags": [],
+          "docs": "",
+          "complexTypes": [],
+          "type": "string"
+        },
+        {
+          "name": "requests",
+          "tags": [],
+          "docs": "",
+          "complexTypes": [
+            "PendingRequest"
+          ],
+          "type": "PendingRequest[]"
+        },
+        {
+          "name": "biometricType",
+          "tags": [],
+          "docs": "",
+          "complexTypes": [],
+          "type": "'FACE_ID' | 'FINGER_PRINT' | 'AUTO' | undefined"
+        }
+      ]
+    }
+  ],
+  "enums": [],
+  "typeAliases": [],
+  "pluginConfigs": []
+}
