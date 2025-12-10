@@ -165,6 +165,13 @@
       "methods": [],
       "properties": [
         {
+          "name": "userId",
+          "tags": [],
+          "docs": "",
+          "complexTypes": [],
+          "type": "string"
+        },
+        {
           "name": "token",
           "tags": [],
           "docs": "",

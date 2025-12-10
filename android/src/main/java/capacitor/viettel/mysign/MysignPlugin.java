@@ -94,6 +94,7 @@ public class MysignPlugin extends Plugin {
             return;
         }
 
+        String userId = call.getString("userId");
         String token = call.getString("token");
         String biometricTypeStr = call.getString("biometricType", "AUTO");
 
@@ -111,6 +112,7 @@ public class MysignPlugin extends Plugin {
         }
 
         new MySignSDK.Builder()
+            .withUserId(userId)
             .withToken(token)
             .withActivity(activity)
             .withBiometricApiType(biometricType)

@@ -115,6 +115,7 @@ Authorize multiple pending signing requests
 
 | Prop                | Type                                               |
 | ------------------- | -------------------------------------------------- |
+| **`userId`**        | <code>string</code>                                |
 | **`token`**         | <code>string</code>                                |
 | **`biometricType`** | <code>'FACE_ID' \| 'FINGER_PRINT' \| 'AUTO'</code> |
 

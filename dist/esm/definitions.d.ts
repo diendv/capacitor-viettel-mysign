@@ -25,6 +25,7 @@ export interface InitializeOptions {
     biometricSessionTime?: number;
 }
 export interface RegisterDeviceOptions {
+    userId: string;
     token: string;
     biometricType?: 'FACE_ID' | 'FINGER_PRINT' | 'AUTO';
 }

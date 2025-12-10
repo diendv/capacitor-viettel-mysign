@@ -37,6 +37,7 @@ export interface InitializeOptions {
 }
 
 export interface RegisterDeviceOptions {
+  userId: string;
   token: string;
   biometricType?: 'FACE_ID' | 'FINGER_PRINT' | 'AUTO';
 }
