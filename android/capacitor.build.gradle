@@ -1,0 +1,14 @@
+import com.android.build.api.dsl.LibraryExtension
+
+repositories {
+    google()
+    mavenCentral()
+    flatDir {
+        dirs 'libs'
+    }
+}
+
+dependencies {
+    implementation fileTree(include: ['*.jar', '*.aar'], dir: 'libs')
+    implementation(name: 'GoSignSDK', ext: 'aar')
+}

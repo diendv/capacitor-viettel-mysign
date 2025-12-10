@@ -10,7 +10,7 @@ console.log('========================================');
 console.log('');
 
 // Check if this is being installed in a project (not in plugin dev)
-const isInProject = !__dirname.includes('capacitor-mysign-plugin');
+const isInProject = !__dirname.includes('capacitor-viettel-mysign');
 
 if (!isInProject) {
   console.log('✓ Plugin development mode - skipping post-install');
