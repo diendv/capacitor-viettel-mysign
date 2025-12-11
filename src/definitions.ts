@@ -12,6 +12,11 @@ export interface MysignPlugin {
   initialize(options: InitializeOptions): Promise<void>;
 
   /**
+   * Get device ID
+   */
+  getDeviceId(): Promise<{ deviceId: string }>;
+  
+  /**
    * Register device for biometric authentication
    */
   registerDevice(options: RegisterDeviceOptions): Promise<RegisterDeviceResult>;

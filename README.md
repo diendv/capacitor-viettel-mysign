@@ -14,6 +14,7 @@ npx cap sync
 <docgen-index>
 
 * [`initialize(...)`](#initialize)
+* [`getDeviceId()`](#getdeviceid)
 * [`registerDevice(...)`](#registerdevice)
 * [`authorizePendingRequest(...)`](#authorizependingrequest)
 * [`authorizeMultiplePendingRequests(...)`](#authorizemultiplependingrequests)
@@ -35,6 +36,19 @@ Initialize the Mysign SDK
 | Param         | Type                                                            |
 | ------------- | --------------------------------------------------------------- |
 | **`options`** | <code><a href="#initializeoptions">InitializeOptions</a></code> |
+
+--------------------
+
+
+### getDeviceId()
+
+```typescript
+getDeviceId() => Promise<{ deviceId: string; }>
+```
+
+Get device ID
+
+**Returns:** <code>Promise&lt;{ deviceId: string; }&gt;</code>
 
 --------------------
 

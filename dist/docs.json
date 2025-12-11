@@ -24,6 +24,16 @@
         "slug": "initialize"
       },
       {
+        "name": "getDeviceId",
+        "signature": "() => Promise<{ deviceId: string; }>",
+        "parameters": [],
+        "returns": "Promise<{ deviceId: string; }>",
+        "tags": [],
+        "docs": "Get device ID",
+        "complexTypes": [],
+        "slug": "getdeviceid"
+      },
+      {
         "name": "registerDevice",
         "signature": "(options: RegisterDeviceOptions) => Promise<RegisterDeviceResult>",
         "parameters": [

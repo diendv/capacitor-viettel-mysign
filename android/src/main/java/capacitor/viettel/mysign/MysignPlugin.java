@@ -8,6 +8,7 @@ import com.getcapacitor.PluginCall;
 import com.getcapacitor.PluginMethod;
 import com.getcapacitor.annotation.CapacitorPlugin;
 
+import com.viettel.biometrics.signature.helpers.GoSignSDK;
 import com.viettel.biometrics.signature.helpers.MySignSDK;
 import com.viettel.biometrics.signature.helpers.GoSignSDKSetup;
 import com.viettel.biometrics.signature.ultils.BiometricApiType;
@@ -86,6 +87,29 @@ public class MysignPlugin extends Plugin {
             call.reject("Failed to initialize Mysign SDK: " + e.getMessage(), e);
         }
     }
+
+    @PluginMethod
+    public void getDeviceId(PluginCall call) {
+        if (!isInitialized) {
+            call.reject("Mysign SDK is not initialized. Call initialize() first.");
+            return;
+        }
+
+        try {
+            String deviceId = GoSignSDK.getDeviceId();
+            
+            if (deviceId == null || deviceId.isEmpty()) {
+                call.reject("Device ID is not available. Device may not be registered yet.");
+                return;
+            }
+
+            JSObject result = new JSObject();
+            result.put("deviceId", deviceId);
+            call.resolve(result);
+        } catch (Exception e) {
+            call.reject("Failed to get device ID: " + e.getMessage(), e);
+        }
+    }    
 
     @PluginMethod
     public void registerDevice(PluginCall call) {

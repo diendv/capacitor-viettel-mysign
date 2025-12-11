@@ -15,6 +15,11 @@ export class MysignWeb extends WebPlugin implements MysignPlugin {
     throw this.unavailable('Mysign SDK is not available on web platform');
   }
 
+  async getDeviceId(): Promise<{ deviceId: string }> {
+    console.log('Get device ID (web platform not supported)');
+    throw this.unavailable('Mysign SDK is not available on web platform');
+  }
+
   async registerDevice(options: RegisterDeviceOptions): Promise<RegisterDeviceResult> {
     console.log('Register device (web platform not supported)', options);
     throw this.unavailable('Mysign SDK is not available on web platform');
