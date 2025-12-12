@@ -96,7 +96,7 @@ public class MysignPlugin extends Plugin {
         }
 
         try {
-            String deviceId = GoSignSDK.getDeviceId();
+            String deviceId = GoSignSDK.get().getDeviceId();
             
             if (deviceId == null || deviceId.isEmpty()) {
                 call.reject("Device ID is not available. Device may not be registered yet.");
